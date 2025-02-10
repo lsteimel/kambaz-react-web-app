@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FormControl } from "react-bootstrap";
 export default function Signup() {
