@@ -15,8 +15,7 @@ export default function Lab1() {
     <input type="text" placeholder="Doe"
            value="Wonderland"
            title="The last name"
-           id="wd-text-fields-last-name" />
-    {/* copy rest of form elements here  */}
+           id="wd-text-fields-last-name" /><br/>
   </form>
 </div>
 

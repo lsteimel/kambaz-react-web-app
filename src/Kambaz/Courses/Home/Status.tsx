@@ -6,20 +6,24 @@ import { Button } from "react-bootstrap";
 {/* Find more icons */}
 export default function CourseStatus() {
  return (
-   <div id="wd-course-status" style={{ width: "350px" }}>
+   <div id="wd-course-status" className="d-flex justify-content-between align-items-start">
      <h2>Course Status</h2>
-     <div className="d-flex">
-       <div className="w-50 pe-1">
-         <Button variant="secondary" size="lg" className="w-100 text-nowrap ">
-           <MdDoNotDisturbAlt className="me-2 fs-5" /> Unpublish </Button> </div>
-       <div className="w-50">
-            <Button variant="success" size="lg" className="w-100">
-           <FaCheckCircle className="me-2 fs-5" /> Publish </Button> </div>
+     <div style={{ width: "700px" }}>
+       <div className="d-flex gap-2">
+         <Button variant="secondary" size="sm" className="text-nowrap">
+           <MdDoNotDisturbAlt className="me-1" /> Unpublish
+         </Button>
+         <Button variant="success" size="sm" className="text-nowrap">
+           <FaCheckCircle className="me-1" /> Publish
+         </Button>
+         <Button variant="secondary" size="sm" className="text-nowrap">
+           <BiImport className="me-1" /> Import Existing Content
+         </Button>
+         <Button variant="secondary" size="sm" className="text-nowrap">
+           <LiaFileImportSolid className="me-1" /> Import from Commons
+         </Button>
+       </div>
      </div>
-     <br />
-     <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
-       <BiImport className="me-2 fs-5" /> Import Existing Content </Button>
-     <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
-       <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons </Button>
-     {/* Complete the rest of the buttons */}
-   </div> );}
+   </div>
+ );
+}

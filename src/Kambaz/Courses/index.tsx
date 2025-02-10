@@ -7,7 +7,7 @@ import AssignmentEditor from "./Assignments/Editor";
 import PeopleTable from "./People/Table";
 export default function Courses() {
   return (
-    <div id="wd-courses">
+    <div id="wd-courses" className="row wd-sub-navigation">
       <h2>Course 1234</h2>
       <hr />
       <table>
@@ -15,7 +15,7 @@ export default function Courses() {
           <td valign="top">
             <CourseNavigation />
           </td>
-          <td valign="top">
+          <td valign="top" className="">
             <Routes>
               <Route path="/" element={<Navigate to="Home" />} />
               <Route path="Home" element={<Home />} />
