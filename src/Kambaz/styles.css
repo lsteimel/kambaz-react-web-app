@@ -37,3 +37,28 @@ body * {
 .wd-sub-navigation {
     margin-left: 100px;
 }
+
+#wd-kambaz {
+  display: flex;
+  flex-direction: row;
+}
+
+#wd-kambaz-navigation {
+  width: 120px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 2;
+}
+
+#wd-dashboard {
+    margin-left: 140px;
+    padding: 20px;
+}
+
+#wd-courses {
+    margin-left: 140px;
+    padding: 20px;
+}
+

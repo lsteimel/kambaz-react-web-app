@@ -11,7 +11,7 @@ export default function Kambaz() {
       <div>
         <KambazNavigation />
       </div>
-      <div className="flex-grow-1 ps-4">
+      <div  className="flex-grow-1 ps-4">
         <Routes>
           <Route path="/" element={<Navigate to="Account" />} />
           <Route path="/Account/*" element={<Account />} />
