@@ -1,22 +1,33 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+
 export default function CourseNavigation() {
   const { pathname } = useLocation();
+  const { cid } = useParams();
+
+  const links = [
+    { label: "Home", path: `/Kambaz/Courses/${cid}/Home` },
+    { label: "Modules", path: `/Kambaz/Courses/${cid}/Modules` },
+    { label: "Piazza", path: `/Kambaz/Courses/${cid}/Piazza` },
+    { label: "Zoom", path: `/Kambaz/Courses/${cid}/Zoom` },
+    { label: "Assignments", path: `/Kambaz/Courses/${cid}/Assignments` },
+    { label: "Quizzes", path: `/Kambaz/Courses/${cid}/Quizzes` },
+    { label: "People", path: `/Kambaz/Courses/${cid}/People` },
+  ];
+
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
-      <Link to="/Kambaz/Courses/1234/Home" id="wd-course-home-link"
-        className={`list-group-item border border-0 ${pathname.includes("Home") ? "active" : "text-danger"}`}>Home</Link>
-      <Link to="/Kambaz/Courses/1234/Modules" id="wd-course-modules-link"
-        className={`list-group-item border border-0 ${pathname.includes("Modules") ? "active" : "text-danger"}`}>Modules</Link>
-      <Link to="/Kambaz/Courses/1234/Piazza" id="wd-course-piazza-link"
-        className={`list-group-item border border-0 ${pathname.includes("Piazza") ? "active" : "text-danger"}`}>Piazza</Link>
-      <Link to="/Kambaz/Courses/1234/Zoom" id="wd-course-zoom-link"
-        className={`list-group-item border border-0 ${pathname.includes("Zoom") ? "active" : "text-danger"}`}>Zoom</Link>
-      <Link to="/Kambaz/Courses/1234/Assignments" id="wd-course-quizzes-link"
-        className={`list-group-item border border-0 ${pathname.includes("Assignments") ? "active" : "text-danger"}`}>Assignments</Link>
-      <Link to="/Kambaz/Courses/1234/Quizzes" id="wd-course-assignments-link"
-        className={`list-group-item border border-0 ${pathname.includes("Quizzes") ? "active" : "text-danger"}`}>Quizzes</Link>
-      <Link to="/Kambaz/Courses/1234/People" id="wd-course-people-link"
-        className={`list-group-item border border-0 ${pathname.includes("People") ? "active" : "text-danger"}`}>People</Link>
+      {links.map((link) => (
+        <Link
+          key={link.path}
+          to={link.path}
+          id={`wd-course-${link.label.toLowerCase()}-link`}
+          className={`list-group-item border border-0 ${
+            pathname.includes(link.label) ? "active" : "text-danger"
+          }`}
+        >
+          {link.label}
+        </Link>
+      ))}
     </div>
   );
 }

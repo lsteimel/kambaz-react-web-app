@@ -1,58 +1,34 @@
 import { Link } from "react-router-dom";
+import * as db from "./Database";
+import { Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 export default function Dashboard() {
+  const courses = db.courses;
   return (
-    <div id="wd-dashboard" className="container">
-      <h1 id="wd-dashboard-title" className="mt-4">Dashboard</h1>
-      <hr />
-      <h2 id="wd-dashboard-published" className="mt-4">Published Courses (12)</h2>
-      <hr />
-      <div id="wd-dashboard-courses" className="row mt-4">
-        <div className="wd-dashboard-course col-xl-3 col-lg-4 col-md-6 mb-4">
-          <Link to="/Kambaz/Courses/1234/Home"
-                className="wd-dashboard-course-link text-decoration-none">
-            <div className="card">
-              <img src="/images/react.png" className="card-img-top" alt="React JS Course" />
-              <div className="card-body">
-                <h5 className="card-title">CS1234 React JS</h5>
-                <p className="card-text wd-dashboard-course-title">
-                  Full Stack software developer
-                </p>
-                <button className="btn btn-primary">Go</button>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="wd-dashboard-course col-xl-3 col-lg-4 col-md-6 mb-4">
-          <Link to="/Kambaz/Courses/2345/Home"
-                className="wd-dashboard-course-link text-decoration-none">
-            <div className="card">
-              <img src="/images/nodejs.png" className="card-img-top" alt="Node.js Course" />
-              <div className="card-body">
-                <h5 className="card-title">CS2345 Node.js</h5>
-                <p className="card-text wd-dashboard-course-title">
-                  Server Side Development
-                </p>
-                <button className="btn btn-primary">Go</button>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="wd-dashboard-course col-xl-3 col-lg-4 col-md-6 mb-4">
-          <Link to="/Kambaz/Courses/3456/Home"
-                className="wd-dashboard-course-link text-decoration-none">
-            <div className="card">
-              <img src="/images/db.png" className="card-img-top" alt="Database Course" />
-              <div className="card-body">
-                <h5 className="card-title">CS3456 Database Design</h5>
-                <p className="card-text wd-dashboard-course-title">
-                  Database Systems and SQL
-                </p>
-                <button className="btn btn-primary">Go</button>
-              </div>
-            </div>
-          </Link>
-        </div>
+    <div id="wd-dashboard">
+      <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
+      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2> <hr />
+      <div id="wd-dashboard-courses">
+        <Row xs={1} md={5} className="g-4">
+          {courses.map((course) => (
+            <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+              <Card>
+                <Link to={`/Kambaz/Courses/${course._id}/Home`}
+                      className="wd-dashboard-course-link text-decoration-none text-dark" >
+                  <Card.Img src="/images/reactjs.jpg" variant="top" width="100%" height={160} />
+                  <Card.Body className="card-body">
+                    <Card.Title className="wd-dashboard-course-title text-nowrap overflow-hidden">
+                      {course.name} </Card.Title>
+                    <Card.Text className="wd-dashboard-course-description overflow-hidden" style={{ height: "100px" }}>
+                      {course.description} </Card.Text>
+                    <Button variant="primary"> Go </Button>
+                  </Card.Body>
+                </Link>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
-    </div>
-  );
-}
+    </div>);} 
